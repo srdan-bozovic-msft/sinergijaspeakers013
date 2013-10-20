@@ -7,51 +7,49 @@ using System.Threading.Tasks;
 
 namespace MsCampus.Win8.Shared.DI
 {
-    public class InstanceFactory
+    public static class InstanceFactory
     {
-        public static class InstanceFactory
+        static readonly IContainer _container;
+
+        public static Dictionary<Type, Type> Registrations =
+            new Dictionary<Type, Type>();
+
+        static InstanceFactory()
         {
-            static readonly IContainer _container;
+            _container = new MetroContainer();
+        }
 
-            public static Dictionary<Type, Type> Registrations =
-                new Dictionary<Type, Type>();
+        public static void RegisterType<T1, T2>() where T2 : class,T1
+        {
+            Registrations[typeof(T1)] = typeof(T2);
+            _container.Register<T1, T2>(null, new Singleton());
+        }
 
-            static InstanceFactory()
-            {
-                _container = new MetroContainer();
-            }
+        public static void RegisterInstance<T1>(T1 instance)
+        {
+            _container.RegisterInstance<T1>(instance);
+        }
 
-            public static void RegisterType<T1, T2>() where T2 : class,T1
-            {
-                Registrations[typeof(T1)] = typeof(T2);
-                _container.Register<T1, T2>(null, new Singleton());
-            }
+        public static void RegisterWithTransientLifetime<T1, T2>() where T2 : class,T1
+        {
+            Registrations[typeof(T1)] = typeof(T2);
+            _container.Register<T1, T2>(registration: new Transient());
+        }
 
-            public static void RegisterInstance<T1>(T1 instance)
-            {
-                _container.RegisterInstance<T1>(instance);
-            }
+        public static void RegisterNamedInstance<T1, T2>(string key) where T2 : class,T1
+        {
+            _container.Register<T1, T2>(key: key);
+        }
 
-            public static void RegisterWithTransientLifetime<T1, T2>() where T2 : class,T1
-            {
-                Registrations[typeof(T1)] = typeof(T2);
-                _container.Register<T1, T2>(registration: new Transient());
-            }
+        public static T GetInstance<T>()
+        {
+            return _container.Resolve<T>();
+        }
 
-            public static void RegisterNamedInstance<T1, T2>(string key) where T2 : class,T1
-            {
-                _container.Register<T1, T2>(key: key);
-            }
-
-            public static T GetInstance<T>()
-            {
-                return _container.Resolve<T>();
-            }
-
-            public static T GetNamedInstance<T>(string key)
-            {
-                return _container.Resolve<T>(key: key);
-            }
+        public static T GetNamedInstance<T>(string key)
+        {
+            return _container.Resolve<T>(key: key);
         }
     }
 }
+

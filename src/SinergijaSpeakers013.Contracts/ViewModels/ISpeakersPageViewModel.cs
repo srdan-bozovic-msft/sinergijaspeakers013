@@ -1,5 +1,5 @@
 ﻿using GalaSoft.MvvmLight.Command;
-using MsCampus.Win8.Shared.Contracts.ViewModel;
+using MsCampus.Win8.Shared.Contracts.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

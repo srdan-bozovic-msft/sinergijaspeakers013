@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SinergijaSpeakers013.Contracts.Model
+namespace SinergijaSpeakers013.Contracts.Models
 {
-    interface ISlot
+    public interface ISlot
     {
         int Id { get; set; }
         int TimeLine { get; set; }

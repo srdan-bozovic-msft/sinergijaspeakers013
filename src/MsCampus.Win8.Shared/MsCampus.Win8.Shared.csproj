@@ -102,6 +102,14 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <ProjectReference Include="..\MsCampus.Win8.Shared.DI\MsCampus.Win8.Shared.DI.csproj">
+      <Project>{b1466e54-80e5-4714-a493-b2d81d043304}</Project>
+      <Name>MsCampus.Win8.Shared.DI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NotificationsExtensions\NotificationsExtensions.csproj">
+      <Project>{6e87464b-b064-40ca-8161-7c18c337adff}</Project>
+      <Name>NotificationsExtensions</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contracts\Services\ICacheItem.cs" />
@@ -109,8 +117,11 @@
     <Compile Include="Contracts\Services\INavigationService.cs" />
     <Compile Include="Contracts\Services\IStateService.cs" />
     <Compile Include="Contracts\Services\IToastService.cs" />
-    <Compile Include="Contracts\ViewModel\IPageViewModel.cs" />
+    <Compile Include="Contracts\ViewModels\IPageViewModel.cs" />
     <Compile Include="Contracts\View\IPageView.cs" />
+    <Compile Include="Implementation\Services\NavigationService.cs" />
+    <Compile Include="Implementation\Services\StateService.cs" />
+    <Compile Include="Implementation\Services\ToastService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">

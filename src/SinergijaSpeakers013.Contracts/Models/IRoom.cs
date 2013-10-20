@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SinergijaSpeakers013.Contracts.Model
+namespace SinergijaSpeakers013.Contracts.Models
 {
-    public interface IDay
+    public interface IRoom
     {
         int Id { get; set; }
-        DateTime Date { get; set; }
+        string Code { get; set; }
     }
 }
