@@ -14,6 +14,7 @@ namespace MsCampus.Win8.Shared.Implementation.Services
         public async Task<T> GetJson<T>(string url)
         {
             var httpClientHandler = new HttpClientHandler();
+            httpClientHandler.AutomaticDecompression = System.Net.DecompressionMethods.GZip;
             var client = new HttpClient(httpClientHandler);
             var response = await client.GetAsync(url);
             if (response != null)
