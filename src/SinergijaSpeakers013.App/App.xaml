@@ -1,0 +1,15 @@
+﻿<Application
+    x:Class="SinergijaSpeakers013.App.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SinergijaSpeakers013.App"
+    xmlns:localData="using:SinergijaSpeakers013.App.Data">
+
+    <Application.Resources>
+
+        <!-- Application-specific resources -->
+
+        <x:String x:Key="AppName">SinergijaSpeakers013.App</x:String>
+
+    </Application.Resources>
+</Application>
