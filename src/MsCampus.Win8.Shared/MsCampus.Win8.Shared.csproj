@@ -119,10 +119,20 @@
     <Compile Include="Contracts\Services\IToastService.cs" />
     <Compile Include="Contracts\ViewModels\IPageViewModel.cs" />
     <Compile Include="Contracts\View\IPageView.cs" />
+    <Compile Include="Implementation\Services\CacheItem.cs" />
+    <Compile Include="Implementation\Services\WindowsStorageCacheService.cs" />
     <Compile Include="Implementation\Services\NavigationService.cs" />
     <Compile Include="Implementation\Services\StateService.cs" />
     <Compile Include="Implementation\Services\ToastService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.8\lib\netcore45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>

@@ -6,9 +6,13 @@ using System.Threading.Tasks;
 
 namespace MsCampus.Win8.Shared.Contracts.Services
 {
-    public interface ICacheItem
+    public interface ICacheItem<T>
     {
-        T GetValue<T>();
+        bool HasValue { get; }
+        T Value
+        {
+            get;
+        }
         DateTime LastSync { get; }
     }
 }
