@@ -6,11 +6,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{EF6E8947-7F5F-4DE4-983B-61DAADEE3CBE}</ProjectGuid>
+    <ProjectGuid>{3A3762FB-F9BA-43CC-B2D2-445CD4E351E2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SinergijaSpeakers013.Contracts</RootNamespace>
-    <AssemblyName>SinergijaSpeakers013.Contracts</AssemblyName>
+    <RootNamespace>MsCampus.Win8.Shared</RootNamespace>
+    <AssemblyName>MsCampus.Win8.Shared</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformVersion>8.1</TargetPlatformVersion>
     <MinimumVisualStudioVersion>12</MinimumVisualStudioVersion>
@@ -104,46 +104,14 @@
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\IConferenceDataModel.cs" />
-    <Compile Include="Model\IDay.cs" />
-    <Compile Include="Model\IEvent.cs" />
-    <Compile Include="Model\IRoom.cs" />
-    <Compile Include="Model\ISession.cs" />
-    <Compile Include="Model\ISessionSpeakerRelation.cs" />
-    <Compile Include="Model\ISlot.cs" />
-    <Compile Include="Model\ISpeaker.cs" />
+    <Compile Include="Contracts\Services\ICacheItem.cs" />
+    <Compile Include="Contracts\Services\ICacheService.cs" />
+    <Compile Include="Contracts\Services\INavigationService.cs" />
+    <Compile Include="Contracts\Services\IStateService.cs" />
+    <Compile Include="Contracts\Services\IToastService.cs" />
+    <Compile Include="Contracts\ViewModel\IPageViewModel.cs" />
+    <Compile Include="Contracts\View\IPageView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\IConferenceRepository.cs" />
-    <Compile Include="Services\Data\IConfDataService.cs" />
-    <Compile Include="Services\Infra\ICacheService.cs" />
-    <Compile Include="Services\Infra\ICacheItem.cs" />
-    <Compile Include="Services\Infra\INavigationService.cs" />
-    <Compile Include="Services\Infra\IStateService.cs" />
-    <Compile Include="Services\Infra\IToastService.cs" />
-    <Compile Include="ViewModels\ISpeakerGroupTileInfo.cs" />
-    <Compile Include="ViewModels\ISpeakersPageViewModel.cs" />
-    <Compile Include="ViewModels\ISpeakerTileInfo.cs" />
-    <Compile Include="View\ISpeakersPageView.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MsCampus.Win8.Shared\MsCampus.Win8.Shared.csproj">
-      <Project>{3a3762fb-f9ba-43cc-b2d2-445cd4e351e2}</Project>
-      <Name>MsCampus.Win8.Shared</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="GalaSoft.MvvmLight.Extras.Win8">
-      <HintPath>..\packages\MvvmLightLibs.4.1.27.1\lib\netcore45\GalaSoft.MvvmLight.Extras.Win8.dll</HintPath>
-    </Reference>
-    <Reference Include="GalaSoft.MvvmLight.Win8">
-      <HintPath>..\packages\MvvmLightLibs.4.1.27.1\lib\netcore45\GalaSoft.MvvmLight.Win8.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Practices.ServiceLocation">
-      <HintPath>..\packages\MvvmLightLibs.4.1.27.1\lib\netcore45\Microsoft.Practices.ServiceLocation.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>
