@@ -10,6 +10,6 @@ namespace MsCampus.Win8.Shared.Contracts.Services
     {
         Task<bool> Exists(string key);
         Task Put(string key, object value);
-        Task<ICacheItem> Get(string key);
+        Task<ICacheItem<T>> Get<T>(string key);
     }
 }
