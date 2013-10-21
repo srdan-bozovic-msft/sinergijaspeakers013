@@ -19,9 +19,9 @@ namespace SinergijaSpeakers013.Services
             _httpClientService = httpClientService;
         }
 
-        public async Task<IConferenceDataModel> GetConfData()
+        public async Task<ConferenceDataModel> GetConfData()
         {
-            return await _httpClientService.GetJson<IConferenceDataModel>(ServiceUriString + "?op=Agenda");
+            return await _httpClientService.GetJson<ConferenceDataModel>(ServiceUriString + "?op=Agenda");
         }
 
         public async Task<int> GetVersion()

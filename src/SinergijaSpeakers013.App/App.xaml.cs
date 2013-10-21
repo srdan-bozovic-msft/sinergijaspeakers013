@@ -1,5 +1,7 @@
-﻿using SinergijaSpeakers013.App.Common;
-
+﻿using MsCampus.Win8.Shared.Contracts.Services;
+using MsCampus.Win8.Shared.DI;
+using SinergijaSpeakers013.App.Common;
+using SinergijaSpeakers013.Services;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -54,6 +56,8 @@ namespace SinergijaSpeakers013.App
 #endif
 
             Frame rootFrame = Window.Current.Content as Frame;
+            var navigationService = InstanceFactory.GetInstance<INavigationService>();
+            var stateService = InstanceFactory.GetInstance<IStateService>();
 
             // Do not repeat app initialization when the Window already has content,
             // just ensure that the window is active
@@ -62,24 +66,20 @@ namespace SinergijaSpeakers013.App
             {
                 // Create a Frame to act as the navigation context and navigate to the first page
                 rootFrame = new Frame();
-                //Associate the frame with a SuspensionManager key                                
-                SuspensionManager.RegisterFrame(rootFrame, "AppFrame");
+
                 // Set the default language
                 rootFrame.Language = Windows.Globalization.ApplicationLanguages.Languages[0];
 
                 rootFrame.NavigationFailed += OnNavigationFailed;
 
+                navigationService.Frame = rootFrame;
+
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
-                    // Restore the saved session state only when appropriate
-                    try
+                    stateService.LoadState();
+                    if (stateService.Parameter != null && stateService.ViewName != null)
                     {
-                        await SuspensionManager.RestoreAsync();
-                    }
-                    catch (SuspensionManagerException)
-                    {
-                        //Something went wrong restoring state.
-                        //Assume there is no state and continue
+                        navigationService.Navigate(stateService.ViewName, stateService.Parameter);
                     }
                 }
 
@@ -91,7 +91,7 @@ namespace SinergijaSpeakers013.App
                 // When the navigation stack isn't restored navigate to the first page,
                 // configuring the new page by passing required information as a navigation
                 // parameter
-                rootFrame.Navigate(typeof(GroupedItemsPage), e.Arguments);
+                navigationService.Navigate(NavigationService.PageNames.SpeakersPageView, null);
             }
             // Ensure the current window is active
             Window.Current.Activate();
@@ -117,7 +117,8 @@ namespace SinergijaSpeakers013.App
         private async void OnSuspending(object sender, SuspendingEventArgs e)
         {
             var deferral = e.SuspendingOperation.GetDeferral();
-            await SuspensionManager.SaveAsync();
+            var stateService = InstanceFactory.GetInstance<IStateService>();
+            stateService.SaveState();
             deferral.Complete();
         }
     }

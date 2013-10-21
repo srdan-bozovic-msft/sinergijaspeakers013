@@ -110,10 +110,6 @@
       <Project>{ef6e8947-7f5f-4de4-983b-61daadee3cbe}</Project>
       <Name>SinergijaSpeakers013.Contracts</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SinergijaSpeakers013.Model\SinergijaSpeakers013.Models.csproj">
-      <Project>{33b21adc-b814-4df0-bc92-81fda3ed39bc}</Project>
-      <Name>SinergijaSpeakers013.Models</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConferenceRepository.cs" />

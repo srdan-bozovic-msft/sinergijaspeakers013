@@ -2,7 +2,6 @@
 using SinergijaSpeakers013.Contracts.Models;
 using SinergijaSpeakers013.Contracts.Repositories;
 using SinergijaSpeakers013.Contracts.Services.Data;
-using SinergijaSpeakers013.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,7 +24,7 @@ namespace SinergijaSpeakers013.Repositories
             _conferenceDataService = conferenceDataService;
             _cacheService = cacheService;
         }
-        public async Task<List<ISpeaker>> GetSpeakers()
+        public async Task<List<Speaker>> GetSpeakers()
         {
             var item = await _cacheService.Get<ConferenceDataModel>(ConferenceDataKey);
             if (item.HasValue)

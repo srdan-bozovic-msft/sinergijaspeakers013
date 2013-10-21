@@ -1,6 +1,7 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using MsCampus.Win8.Shared.Contracts.Services;
+using SinergijaSpeakers013.Contracts.Models;
 using SinergijaSpeakers013.Contracts.Repositories;
 using SinergijaSpeakers013.Contracts.ViewModels;
 using System;
@@ -63,7 +64,7 @@ namespace SinergijaSpeakers013.ViewModels
             SpeakerGroupTileInfos = GroupSpeakers(speakers);
         }
 
-        private static ObservableCollection<ISpeakerGroupTileInfo> GroupSpeakers(List<Contracts.Models.ISpeaker> speakers)
+        private static ObservableCollection<ISpeakerGroupTileInfo> GroupSpeakers(List<Speaker> speakers)
         {
             var speakerGroupTileInfoList = new List<SpeakerGroupTileInfo>();
             var groupHeaders = new string[] { "a", "b", "c", "č", "ć", "d", "đ", "e", "f", "g", "h", "i", "j", "k", "l", "lj", "m", "n", "nj", "o", "p", "q", "r", "s", "š", "t", "u", "v", "w", "x", "y", "z", "ž" };

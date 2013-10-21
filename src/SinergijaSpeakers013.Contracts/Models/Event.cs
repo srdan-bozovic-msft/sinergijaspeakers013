@@ -5,65 +5,71 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SinergijaSpeakers013.Models
+namespace SinergijaSpeakers013.Contracts.Models
 {
-    public class ConferenceDataModel
+    public class Event
     {
-        public int Version
+        public int Id
         {
             get;
             set;
         }
 
-        public List<Day> Days
+        public string Name
         {
             get;
             set;
         }
 
-        public List<Room> Rooms
+        public DateTime TimeBegin
         {
             get;
             set;
         }
 
-        public List<Speaker> Speakers
+        public DateTime TimeEnd
         {
             get;
             set;
         }
 
-        public List<Session> Sessions
+        public string Place
         {
             get;
             set;
         }
 
-        public List<SessionSpeakerRelation> SessionSpeakerRelations
+        public string Address
         {
             get;
             set;
         }
 
-        public List<Slot> Slots
+        public string Description
         {
             get;
             set;
         }
 
-        public List<Event> Events
+        public string Note
         {
             get;
             set;
         }
 
-        public string Test
+        public double Longitude
         {
             get;
             set;
         }
 
-        public string PicturesLocation
+        public double Latitude
+        {
+            get;
+            set;
+        }
+
+        public bool Visibility
         {
             get;
             set;

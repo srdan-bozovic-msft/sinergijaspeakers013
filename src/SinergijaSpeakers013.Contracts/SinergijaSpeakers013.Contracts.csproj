@@ -104,14 +104,14 @@
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\IConferenceDataModel.cs" />
-    <Compile Include="Models\IDay.cs" />
-    <Compile Include="Models\IEvent.cs" />
-    <Compile Include="Models\IRoom.cs" />
-    <Compile Include="Models\ISession.cs" />
-    <Compile Include="Models\ISessionSpeakerRelation.cs" />
-    <Compile Include="Models\ISlot.cs" />
-    <Compile Include="Models\ISpeaker.cs" />
+    <Compile Include="Models\ConferenceDataModel.cs" />
+    <Compile Include="Models\Day.cs" />
+    <Compile Include="Models\Event.cs" />
+    <Compile Include="Models\Room.cs" />
+    <Compile Include="Models\Session.cs" />
+    <Compile Include="Models\SessionSpeakerRelation.cs" />
+    <Compile Include="Models\Slot.cs" />
+    <Compile Include="Models\Speaker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IConferenceRepository.cs" />
     <Compile Include="Services\Data\IConferenceDataService.cs" />

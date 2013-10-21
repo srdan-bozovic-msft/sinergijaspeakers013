@@ -10,7 +10,7 @@ namespace SinergijaSpeakers013.ViewModels
 {
     public class SpeakerTileInfo : ISpeakerTileInfo
     {
-        public SpeakerTileInfo(ISpeaker speaker)
+        public SpeakerTileInfo(Speaker speaker)
         {
             SpeakerId = speaker.Id;
             SpeakerName = string.Format("{0} {1}", speaker.LastName, speaker.FirstName);

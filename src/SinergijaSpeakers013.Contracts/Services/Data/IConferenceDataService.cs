@@ -9,7 +9,7 @@ namespace SinergijaSpeakers013.Contracts.Services.Data
 {
     public interface IConferenceDataService
     {
-        Task<IConferenceDataModel> GetConfData();
+        Task<ConferenceDataModel> GetConfData();
         Task<int> GetVersion();
     }
 }

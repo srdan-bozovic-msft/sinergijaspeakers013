@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MsCampus.Win8.Shared.Contracts.Services
 {
-    interface IStateService
+    public interface IStateService
     {
         string Parameter { get; set; }
         string ViewName { get; set; }

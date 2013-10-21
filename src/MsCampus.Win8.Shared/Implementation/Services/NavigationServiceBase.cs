@@ -10,7 +10,7 @@ using Windows.UI.Xaml.Controls;
 
 namespace MsCampus.Win8.Shared.Implementation.Services
 {
-    public abstract class NavigationService : INavigationService
+    public abstract class NavigationServiceBase : INavigationService
     {
         private Frame _frame;
         public Frame Frame
@@ -26,7 +26,7 @@ namespace MsCampus.Win8.Shared.Implementation.Services
             }
         }
 
-        public NavigationService()
+        public NavigationServiceBase()
         {
 
         }
@@ -43,7 +43,7 @@ namespace MsCampus.Win8.Shared.Implementation.Services
             Frame.Navigate(type, parameter);
         }
 
-        private void Navigate<T>(object parameter) where T : IPageView
+        protected void Navigate<T>(object parameter) where T : IPageView
         {
             DisposePreviousView();
             var viewType = InstanceFactory.Registrations.ContainsKey(typeof(T)) ? InstanceFactory.Registrations[typeof(T)] : typeof(T);

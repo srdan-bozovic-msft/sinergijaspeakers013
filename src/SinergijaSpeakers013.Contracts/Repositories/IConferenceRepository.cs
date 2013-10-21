@@ -9,6 +9,6 @@ namespace SinergijaSpeakers013.Contracts.Repositories
 {
     public interface IConferenceRepository
     {
-        Task<List<ISpeaker>> GetSpeakers();
+        Task<List<Speaker>> GetSpeakers();
     }
 }
