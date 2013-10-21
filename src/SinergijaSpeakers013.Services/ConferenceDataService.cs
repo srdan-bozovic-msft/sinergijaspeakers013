@@ -21,7 +21,12 @@ namespace SinergijaSpeakers013.Services
 
         public async Task<ConferenceDataModel> GetConfData()
         {
-            return await _httpClientService.GetJson<ConferenceDataModel>(ServiceUriString + "?op=Agenda");
+           var data = await _httpClientService.GetJson<ConferenceDataModel>(ServiceUriString + "?op=Agenda");
+           foreach (var speaker in data.Speakers)
+           {
+               speaker.PictureUrl = string.Format("{0}/{1}", data.PicturesLocation, speaker.PictureUrl);
+           }
+           return data;
         }
 
         public async Task<int> GetVersion()

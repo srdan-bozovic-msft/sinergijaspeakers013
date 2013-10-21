@@ -42,7 +42,7 @@ namespace SinergijaSpeakers013.App.Views
 
         void vm_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
-            if(e.PropertyName.Equals("ContinentTileInfos"))
+            if(e.PropertyName.Equals("SpeakerGroupTileInfos"))
                 this.groupGridView.ItemsSource = 
                     this.groupedItemsViewSource.View.CollectionGroups;
         }

@@ -47,6 +47,10 @@ namespace SinergijaSpeakers013.ViewModels
             _navigationService = navigationService;
             _conferenceRepository = conferenceRepository;
             _toastService = toastService;
+
+            _speakerGroupTileInfos = new ObservableCollection<ISpeakerGroupTileInfo>();
+
+            InitializeCommands();
         }
 
         private void InitializeCommands()
@@ -54,7 +58,7 @@ namespace SinergijaSpeakers013.ViewModels
             SpeakerSelectedCommand = new RelayCommand<ISpeakerTileInfo>((speakerTileInfo) =>
             {
                 //_navigationService.Navigate("SpeakerDetails", speakerTileInfo.SpeakerId);
-                _toastService.SendSimpleTextToast("//TODO Navigate to speaker " + speakerTileInfo.SpeakerName);
+                _toastService.SendSimpleTextToast("//TODO\nNavigate to speaker " + speakerTileInfo.SpeakerName);
             });
         }
 

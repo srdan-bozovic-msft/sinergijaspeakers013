@@ -36,7 +36,7 @@
             AutomationProperties.AutomationId="ItemGridView"
             AutomationProperties.Name="Grouped Items"
             Grid.RowSpan="2"
-            Padding="116,137,40,46"
+            Padding="116,37,40,46"
             ItemsSource="{Binding Source={StaticResource groupedItemsViewSource}}"
             SelectionMode="None"
             IsSwipeEnabled="false">
@@ -49,6 +49,12 @@
                                 <StackPanel VerticalAlignment="Bottom" Background="{ThemeResource ListViewItemOverlayBackgroundThemeBrush}">
                                     <TextBlock Text="{Binding SpeakerName}" Foreground="{ThemeResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource TitleTextBlockStyle}" Height="60" Margin="15,0,15,0"/>
                                 </StackPanel>
+                                <Interactivity:Interaction.Behaviors>
+                                    <Core:EventTriggerBehavior EventName="Tapped">
+                                        <Core:InvokeCommandAction Command="{Binding DataContext.SpeakerSelectedCommand, ElementName=LayoutRoot}" 
+														CommandParameter="{Binding}" />
+                                    </Core:EventTriggerBehavior>
+                                </Interactivity:Interaction.Behaviors>
                             </Grid>
                         </DataTemplate>
                     </GridView.ItemTemplate>
@@ -67,7 +73,6 @@
                                     Style="{StaticResource TextBlockButtonStyle}" >
                                             <StackPanel Orientation="Horizontal">
                                                 <TextBlock Text="{Binding GroupName}" Margin="0,-11,10,10" Style="{StaticResource SubheaderTextBlockStyle}" TextWrapping="NoWrap" />
-                                                <TextBlock Text="{StaticResource ChevronGlyph}" FontFamily="Segoe UI Symbol" Margin="0,-11,0,10" Style="{StaticResource SubheaderTextBlockStyle}" TextWrapping="NoWrap" />
                                             </StackPanel>
                                         </Button>
                                     </Grid>
@@ -78,13 +83,13 @@
                 </GridView>
 			</SemanticZoom.ZoomedInView>
 			<SemanticZoom.ZoomedOutView>
-				<GridView x:Name="groupGridView" Margin="116,0,40,46">
+				<GridView x:Name="groupGridView" Margin="116,37,40,46">
 					<GridView.ItemTemplate>
 						<DataTemplate>
-							<Grid>
-								<Image Source="{Binding Group.ImageUrl}" Width="320" Height="240"  Stretch="UniformToFill" />
-								<StackPanel VerticalAlignment="Bottom" Background="{StaticResource ListViewItemOverlayBackgroundThemeBrush}">
-                                    <TextBlock Text="{Binding Group.GroupName}" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource TitleTextBlockStyle}" Height="60" Margin="15,0,15,0"/>
+                            <Grid>
+                                <Image Source="{Binding Group.ImageUrl}" Width="140" Height="140"  Stretch="UniformToFill" />
+                                <StackPanel VerticalAlignment="Bottom" Background="{StaticResource ListViewItemOverlayBackgroundThemeBrush}">
+                                    <TextBlock Text="{Binding Group.GroupName}" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource TitleTextBlockStyle}" Height="40" Margin="15,0,15,0"/>
 
 								</StackPanel>
 							</Grid>
