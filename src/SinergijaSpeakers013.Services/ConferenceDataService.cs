@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace SinergijaSpeakers013.Services
@@ -19,9 +20,9 @@ namespace SinergijaSpeakers013.Services
             _httpClientService = httpClientService;
         }
 
-        public async Task<ConferenceDataModel> GetConfData()
+        public async Task<ConferenceDataModel> GetConfData(CancellationToken cancellationToken)
         {
-           var data = await _httpClientService.GetJson<ConferenceDataModel>(ServiceUriString + "?op=Agenda");
+           var data = await _httpClientService.GetJson<ConferenceDataModel>(ServiceUriString + "?op=Agenda", cancellationToken).ConfigureAwait(false);
            foreach (var speaker in data.Speakers)
            {
                speaker.PictureUrl = string.Format("{0}/{1}", data.PicturesLocation, speaker.PictureUrl);
@@ -29,9 +30,9 @@ namespace SinergijaSpeakers013.Services
            return data;
         }
 
-        public async Task<int> GetVersion()
+        public async Task<int> GetVersion(CancellationToken cancellationToken)
         {
-            return await _httpClientService.GetJson<int>(ServiceUriString + "?op=Version");
+            return await _httpClientService.GetJson<int>(ServiceUriString + "?op=Version", cancellationToken).ConfigureAwait(false);
         }
     }
 }

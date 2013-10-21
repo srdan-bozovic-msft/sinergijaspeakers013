@@ -16,7 +16,7 @@ namespace MsCampus.Win8.Shared.Implementation.Services
             try
             {
                 var localFolder = ApplicationData.Current.LocalFolder;
-                await localFolder.GetFileAsync(key);
+                await localFolder.GetFileAsync(key).AsTask().ConfigureAwait(false);
                 return true;
             }
             catch
@@ -32,9 +32,9 @@ namespace MsCampus.Win8.Shared.Implementation.Services
             {
                 var localFolder = ApplicationData.Current.LocalFolder;
                 var fileTask = localFolder.CreateFileAsync(
-                        key, CreationCollisionOption.ReplaceExisting);
+                        key, CreationCollisionOption.ReplaceExisting).AsTask().ConfigureAwait(false);
                 var json = JsonConvert.SerializeObject(value);
-                await FileIO.WriteTextAsync(await fileTask, json);
+                await FileIO.WriteTextAsync(await fileTask, json).AsTask().ConfigureAwait(false);
             }
             catch
             {
@@ -46,8 +46,8 @@ namespace MsCampus.Win8.Shared.Implementation.Services
             try
             {
                 var localFolder = ApplicationData.Current.LocalFolder;
-                var file = await localFolder.GetFileAsync(key);
-                var json = await FileIO.ReadTextAsync(file);
+                var file = await localFolder.GetFileAsync(key).AsTask().ConfigureAwait(false);
+                var json = await FileIO.ReadTextAsync(file).AsTask().ConfigureAwait(false);
                 return new CacheItem<T>(JsonConvert.DeserializeObject<T>(json), file.DateCreated.LocalDateTime);
             }
             catch
