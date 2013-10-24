@@ -8,8 +8,8 @@ namespace MsCampus.Win8.Shared.Contracts.Services
 {
     public interface ICacheService
     {
-        Task<bool> Exists(string key);
-        Task Put(string key, object value);
-        Task<ICacheItem<T>> Get<T>(string key);
+        Task<bool> ExistsAsync(string key);
+        Task PutAsync(string key, object value);
+        Task<ICacheItem<T>> GetAsync<T>(string key);
     }
 }

@@ -12,7 +12,7 @@ namespace MsCampus.Win8.Shared.Implementation.Services
 {
     public class HttpClientService : IHttpClientService
     {
-        public async Task<T> GetJson<T>(string url, CancellationToken cancellationToken)
+        public async Task<T> GetJsonAsync<T>(string url, CancellationToken cancellationToken)
         {
             var httpClientHandler = new HttpClientHandler();
             httpClientHandler.AutomaticDecompression = System.Net.DecompressionMethods.GZip;

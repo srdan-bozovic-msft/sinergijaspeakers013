@@ -9,6 +9,6 @@ namespace MsCampus.Win8.Shared.Contracts.Services
 {
     public interface IHttpClientService
     {
-        Task<T> GetJson<T>(string url, CancellationToken cancellationToken);
+        Task<T> GetJsonAsync<T>(string url, CancellationToken cancellationToken);
     }
 }

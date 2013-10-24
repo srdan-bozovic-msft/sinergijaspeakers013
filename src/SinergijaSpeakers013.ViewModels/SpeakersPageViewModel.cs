@@ -64,7 +64,7 @@ namespace SinergijaSpeakers013.ViewModels
 
         public async void Initialize(object parameter)
         {
-            var speakers = await _conferenceRepository.GetSpeakers();
+            var speakers = await _conferenceRepository.GetSpeakersAsync();
             SpeakerGroupTileInfos = GroupSpeakers(speakers);
         }
 

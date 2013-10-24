@@ -20,9 +20,9 @@ namespace SinergijaSpeakers013.Services
             _httpClientService = httpClientService;
         }
 
-        public async Task<ConferenceDataModel> GetConfData(CancellationToken cancellationToken)
+        public async Task<ConferenceDataModel> GetConfDataAsync(CancellationToken cancellationToken)
         {
-           var data = await _httpClientService.GetJson<ConferenceDataModel>(ServiceUriString + "?op=Agenda", cancellationToken).ConfigureAwait(false);
+           var data = await _httpClientService.GetJsonAsync<ConferenceDataModel>(ServiceUriString + "?op=Agenda", cancellationToken).ConfigureAwait(false);
            foreach (var speaker in data.Speakers)
            {
                speaker.PictureUrl = string.Format("{0}/{1}", data.PicturesLocation, speaker.PictureUrl);
@@ -30,9 +30,9 @@ namespace SinergijaSpeakers013.Services
            return data;
         }
 
-        public async Task<int> GetVersion(CancellationToken cancellationToken)
+        public async Task<int> GetVersionAsync(CancellationToken cancellationToken)
         {
-            return await _httpClientService.GetJson<int>(ServiceUriString + "?op=Version", cancellationToken).ConfigureAwait(false);
+            return await _httpClientService.GetJsonAsync<int>(ServiceUriString + "?op=Version", cancellationToken).ConfigureAwait(false);
         }
     }
 }

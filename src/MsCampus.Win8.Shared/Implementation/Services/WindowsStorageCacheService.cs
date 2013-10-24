@@ -11,7 +11,7 @@ namespace MsCampus.Win8.Shared.Implementation.Services
 {
     public class WindowsStorageCacheService : ICacheService
     {
-        public async Task<bool> Exists(string key)
+        public async Task<bool> ExistsAsync(string key)
         {
             try
             {
@@ -26,7 +26,7 @@ namespace MsCampus.Win8.Shared.Implementation.Services
         }
 
 
-        public async Task Put(string key, object value)
+        public async Task PutAsync(string key, object value)
         {
             try
             {
@@ -41,7 +41,7 @@ namespace MsCampus.Win8.Shared.Implementation.Services
             }
         }
 
-        public async Task<ICacheItem<T>> Get<T>(string key)
+        public async Task<ICacheItem<T>> GetAsync<T>(string key)
         {
             try
             {

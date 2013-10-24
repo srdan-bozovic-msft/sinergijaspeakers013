@@ -10,7 +10,7 @@ namespace SinergijaSpeakers013.Contracts.Services.Data
 {
     public interface IConferenceDataService
     {
-        Task<ConferenceDataModel> GetConfData(CancellationToken cancellationToken);
-        Task<int> GetVersion(CancellationToken cancellationToken);
+        Task<ConferenceDataModel> GetConfDataAsync(CancellationToken cancellationToken);
+        Task<int> GetVersionAsync(CancellationToken cancellationToken);
     }
 }

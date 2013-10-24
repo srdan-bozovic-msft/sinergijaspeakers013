@@ -26,28 +26,28 @@ namespace SinergijaSpeakers013.Repositories
             _cacheService = cacheService;
         }
 
-        public async Task<List<Speaker>> GetSpeakers()
+        public async Task<List<Speaker>> GetSpeakersAsync()
         {
             var cts = new CancellationTokenSource();
-            return await GetSpeakers(cts.Token);
+            return await GetSpeakersAsync(cts.Token);
         }
 
-        public async Task<List<Speaker>> GetSpeakers(CancellationToken cancellationToken)
+        public async Task<List<Speaker>> GetSpeakersAsync(CancellationToken cancellationToken)
         {
-            var item = await _cacheService.Get<ConferenceDataModel>(ConferenceDataKey).ConfigureAwait(false);
+            var item = await _cacheService.GetAsync<ConferenceDataModel>(ConferenceDataKey).ConfigureAwait(false);
             if (item.HasValue)
             {
                 if (cancellationToken.IsCancellationRequested)
                     return item.Value.Speakers;
                 var versionId = item.Value.Version;
-                var latestVersionId = await _conferenceDataService.GetVersion(cancellationToken).ConfigureAwait(false);
+                var latestVersionId = await _conferenceDataService.GetVersionAsync(cancellationToken).ConfigureAwait(false);
                 if (versionId >= latestVersionId)
                 {
                     return item.Value.Speakers;
                 }
             }
-            var data = await _conferenceDataService.GetConfData(cancellationToken).ConfigureAwait(false);
-            await _cacheService.Put(ConferenceDataKey, data).ConfigureAwait(false);
+            var data = await _conferenceDataService.GetConfDataAsync(cancellationToken).ConfigureAwait(false);
+            await _cacheService.PutAsync(ConferenceDataKey, data).ConfigureAwait(false);
             return data.Speakers;
         }
     }

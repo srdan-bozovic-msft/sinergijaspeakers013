@@ -10,7 +10,7 @@ namespace SinergijaSpeakers013.Contracts.Repositories
 {
     public interface IConferenceRepository
     {
-        Task<List<Speaker>> GetSpeakers();
-        Task<List<Speaker>> GetSpeakers(CancellationToken cancellationToken);
+        Task<List<Speaker>> GetSpeakersAsync();
+        Task<List<Speaker>> GetSpeakersAsync(CancellationToken cancellationToken);
     }
 }
