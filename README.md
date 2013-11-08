@@ -1,4 +1,4 @@
 sinergijaspeakers013
 ====================
 
-Sample app that shows MVVM and async patterns
+App that shows how to use MVVM and async patterns in real world app
